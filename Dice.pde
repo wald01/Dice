@@ -2,35 +2,37 @@ Die bob = new Die(30,50);
 
 void setup()
 {
-  size(500,500);
+  size(330,500);
   textAlign(CENTER,CENTER);
   noLoop();
 }
 void draw()
 {
   //your code here
+  
   int addX2 = 0;
   int addY2 = 0;
+
   clear();
-  text(bob.showResult(), 300,300);
+  textSize(32);
 
   for(int i = 0; i < 3; i++){
       for(int j = 0; j<3; j++){
       bob.show(addX2,addY2);
-      bob.showResult();
+      //bob.showResult();
       addX2 += 95;
       }
       addX2 = 0;
       addY2 += 95;
-  }
-  //   akfaefaefasedfa += xxxx }
-  //    
-  
+  } 
+  bob.showResult();
 }
 void mousePressed()
 {
+  clear();
   bob.resetResult();
   redraw();
+  
 }
 class Die //models one single dice cube
 {
@@ -76,7 +78,7 @@ class Die //models one single dice cube
        result += 3;
        //System.out.println(result);
        fill(40);
-       ellipse(myX+40+addX,myY+40+addY ,10,10);
+       ellipse(myX+40+addX,myY+40+addY,10,10);
        ellipse(myX+addX+60,myY+addY+20,10,10);
        ellipse(myX+addX+20,myY+addY+60,10,10);
        break;
@@ -113,7 +115,9 @@ class Die //models one single dice cube
     }
 }
 void showResult(){
-  System.out.println(result);
+  //System.out.println(result);
+  fill(205);
+  text("Dots: "+result, 150,400);
 }
 void resetResult(){
   result = 0;
