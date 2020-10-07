@@ -12,12 +12,12 @@ void draw()
   int addX2 = 0;
   int addY2 = 0;
   clear();
-  
-  //square(30,20,55);
+  text(bob.showResult(), 300,300);
+
   for(int i = 0; i < 3; i++){
       for(int j = 0; j<3; j++){
       bob.show(addX2,addY2);
-      
+      bob.showResult();
       addX2 += 95;
       }
       addX2 = 0;
@@ -29,7 +29,7 @@ void draw()
 }
 void mousePressed()
 {
-  
+  bob.resetResult();
   redraw();
 }
 class Die //models one single dice cube
@@ -111,7 +111,11 @@ class Die //models one single dice cube
       ellipse(myX+addX+60,myY+addY+40,10,10);
       break;
     }
-
-
+}
+void showResult(){
+  System.out.println(result);
+}
+void resetResult(){
+  result = 0;
 }
 }
