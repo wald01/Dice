@@ -9,11 +9,11 @@ void setup()
 void draw()
 {
   //your code here
-  
+  //rect(0,0,330,500); //
   int addX2 = 0;
   int addY2 = 0;
 
-  clear();
+  //clear();
   textSize(32);
 
   for(int i = 0; i < 3; i++){
@@ -25,12 +25,14 @@ void draw()
       addX2 = 0;
       addY2 += 95;
   } 
+  
   bob.showResult();
 }
 void mousePressed()
 {
-  clear();
+  //clear();
   bob.resetResult();
+  fill(205);
   redraw();
   
 }
@@ -58,7 +60,8 @@ class Die //models one single dice cube
   void show(int addX, int addY){
     //your code here
     fill(205);
-    square(myX+addX,myY+addY,80); //+55 for x and y
+    stroke(0);
+    rect(myX+addX,myY+addY,80,80); //square does not work on github
     num = (int)(Math.random()*6)+1;
     switch (num) {
     case 1:
@@ -117,9 +120,14 @@ class Die //models one single dice cube
 void showResult(){
   //System.out.println(result);
   fill(205);
+  stroke(205);
+  rect(10,350,400,100);
+  fill(40);
   text("Dots: "+result, 150,400);
+  
 }
 void resetResult(){
   result = 0;
+
 }
 }
